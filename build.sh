@@ -1,5 +1,6 @@
 #!/bin/bash
-
+AK3_DIR="./AnyKernel3"
+ZIPNAME="sagit-kernel-$(date +%Y%m%d-%H%M%S).zip"
 # Clean output directory
 rm -rf out
 mkdir -p out
@@ -44,3 +45,20 @@ else
     echo -e "\n✗ Build failed!"
     echo "Check for errors above."
 fi
+
+# Generating AK3 zip
+
+if [ -d "$AK3_DIR" ]; then
+cp -r $AK3_DIR AnyKernel3
+elif ! git clone https://github.com/davidoll/AnyKernel3 -b sagit; then
+echo -e "\nAnyKernel3 repo not found locally and cloning failed! Aborting..."
+exit 1
+fi
+cp out/arch/arm64/boot/Image.gz-dtb AnyKernel3
+rm -f *zip
+cd AnyKernel3
+git checkout sagit &> /dev/null
+zip -r9 "../$ZIPNAME" * -x '*.git*' README.md *placeholder
+cd ..
+rm -rf AnyKernel3
+rm -rf out/arch/arm64/boot
