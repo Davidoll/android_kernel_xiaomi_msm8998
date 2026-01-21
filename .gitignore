@@ -125,3 +125,4 @@ android/configs/android-*.cfg
 Android.bp
 
 /out
+/NonGKI_Kernel_Build_2nd-mainline
