@@ -28,8 +28,9 @@ export CC=clang
 export LD=${CLANG_PATH}/ld.lld
 export CLANG_TRIPLE=aarch64-linux-gnu-
 
+# Readme: to build for chirom ,replace sagit to chiron
 echo "Configuring kernel..."
-make O=out vendor/xiaomi/mi8998_defconfig
+make O=out vendor/xiaomi/mi8998_sagit_defconfig
 
 echo -e "\nBuilding kernel with $(nproc --all) threads..."
 make O=out -j$(nproc --all)
