@@ -10,7 +10,7 @@ export ARCH=arm64
 export SUBARCH=arm64
 
 # Toolchain paths
-export CLANG_PATH=/android/RisingOS/prebuilts/clang/host/linux-x86/clang-r547379/bin/
+export CLANG_PATH=/home/linlinger/toolchain/clang-rastamod/bin/
 export PATH=${CLANG_PATH}:${PATH}
 
 # 64-bit cross compiler (for AArch64)
@@ -44,6 +44,7 @@ elif [ -f "out/arch/arm64/boot/Image.gz" ]; then
 else
     echo -e "\n✗ Build failed!"
     echo "Check for errors above."
+    exit 1
 fi
 
 # Generating AK3 zip

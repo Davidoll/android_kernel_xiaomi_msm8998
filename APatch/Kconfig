@@ -24,5 +24,4 @@ config APATCH_FIX_MODULES
     select MODVERSIONS
     help
            Enable load modules.
-
 endmenu
