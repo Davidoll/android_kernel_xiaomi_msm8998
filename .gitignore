@@ -123,3 +123,6 @@ android/configs/android-*.cfg
 #Ignoring Android.bp link file
 #
 Android.bp
+
+/out
+/NonGKI_Kernel_Build_2nd-mainline
